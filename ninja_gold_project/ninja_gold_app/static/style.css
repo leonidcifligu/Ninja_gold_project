@@ -1,0 +1,38 @@
+.conteiner{
+    width: 100%;
+    
+}
+.conteiner input{
+    background-color: greenyellow;
+}
+.categories{
+    display: flex;
+    justify-content: space-between;
+}
+.category form{
+    text-align: center;
+    border: 1px solid black;
+    padding: 20px;
+    background-color: darkred;
+    color: gold
+}
+.field{
+    border: 1px solid black;
+}
+.category input{
+    box-shadow: black;
+    background-color: green;
+}
+.Activities{
+    border: 1px solid black;
+    margin-top: 20px;
+    text-align: start;
+    background-color: linen;
+}
+.text_danger{
+    color: maroon;
+
+}
+.text-success{
+    color: mediumspringgreen;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninja Gold</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="conteiner">
+            <h4>Your Gold:
+                <input type="text" value="{{request.session.amount}}">
+            </h4>
+        <div class="categories">
+            <div class="category">
+                <form action="/process_money/Farm" method="POST">
+                {% csrf_token %}
+                <h2>Farm</h2>
+                <h4>(earn 10 - 20 gold</h4>
+                <input type="submit"  value="Find Gold!">
+                </form>
+            </div>
+            <div class="category">
+                <form action="/process_money/Cave" method="POST">
+                    {% csrf_token %}
+                    <h2>Cave</h2>
+                    <h4>(earn 5 - 10 gold</h4>
+                    <input type="submit"  value="Find Gold!"> 
+                </form>
+            </div>
+            <div class="category">
+                <form action="/process_money/House" method="POST">
+                    {% csrf_token %}
+                    <h2>House</h2>
+                    <h4>(earn 2 - 5 gold</h4>
+                    <input type="submit" value="Find Gold!">
+                </form>
+            </div>
+            <div class="category">
+                <form action="/process_money/Casino" method="POST">
+                    {% csrf_token %}
+                    <h2>Casino</h2>
+                    <h4>(earn/takes 0 - 50 gold</h4>
+                    <input type="submit" value="Find Gold!">
+                </form>
+            </div> 
+        </div>
+      </div>
+      <h3>Activities:</h3>
+      <div class="Activities">
+        <div class="activity">
+            {% for log in request.session.activities %}
+              {% if "lost" in amount %}
+                <h5 class="text-danger">{{ log }}</h5>
+              {% else %}
+                <h5 class="text-success">{{log}}</h5>
+              {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <input type="reset" value="reset">
+</body>
+</html>
